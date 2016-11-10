@@ -8,11 +8,23 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,BMKMapViewDelegate {
 
+    @IBOutlet weak var mapView: BMKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        mapView.delegate = self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        mapView.delegate = nil
     }
 
     override func didReceiveMemoryWarning() {
